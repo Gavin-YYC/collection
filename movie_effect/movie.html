@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>movie demo</title>
+    <style media="screen">
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        background: #1a1a1d;
+      }
+      p {
+        margin-top: 200px;
+        font-size: 60px;
+        font-weight: bold;
+        text-align: center;
+        background: url('./repeat-white.png') center center repeat;
+        background-size: 80px 60px;
+        -webkit-text-fill-color: transparent;
+        -webkit-background-clip: text;
+        animation: scratchy 0.25s linear forwards infinite;
+      }
+      @keyframes scratchy {
+        0% {
+          background-position: 0 0;
+        }
+        25% {
+          background-position: 0 0;
+        }
+        26% {
+          background-position: 20px -20px;
+        }
+        50% {
+          background-position: 20px -20px;
+        }
+        51% {
+          background-position: 40px -40px;
+        }
+        75% {
+          background-position: 40px -40px;
+        }
+        76% {
+          background-position: 60px -60px;
+        }
+        99% {
+          background-position: 60px -60px;
+        }
+        100% {
+          background-position: 0 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <p>we can never deny the history.</p>
+  </body>
+</html>
