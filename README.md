@@ -1,6 +1,110 @@
 # 代码风格
 
+总结常用的代码风格，统一团队风格。我们常说风格，那么风格有什么作用？
+
+* 一致性
+* 表达能力
+* 简介
+* 约束性
+
+在JavaScript专家编程中，作者将风格分为两部分：
+
+* 视觉清晰度规则
+* 计算有效性规则
+
 ### 1、视觉清晰度规则
+
+#### 1、命名约定
+
+#### 2、常量与变量
+
+#### 3、空白行
+
+#### 4、逗号
+
+#### 5、分号
+
+#### 6、空格
+
+空格不应该出现在空函数或空对象字面量中：
+
+    // bad
+    var foo = { };
+    var arr = [ ];
+
+    // good
+    var foo = {};
+    var arr = [];
+
+#### 7、方括号和大括号
+
+    // bad
+    if ( hidden )
+    {
+      // ...
+    }
+
+    // good
+    if ( hidden ) {
+      // ...
+    }
+
+可读性胜过简洁，让代码压缩工具来解决使代码变小的问题：
+
+    // bad
+    if ( false ) return;
+
+    // good
+    if ( false ) {
+      return;
+    }
+
+结合空格可以让代码阅读起来更舒适：
+
+    // bad 没有空格
+    if(true){
+      //...
+    }
+
+    // good 一个空格
+    if ( true ) {
+      // ...
+    }
+
+    // bad 参数间没有空格
+    if (a,b,c) {}
+
+    // good 参数间存在空格
+    if (a, b, c) {}
+
+#### 8、字符串
+
+为了一致性，字符串应当使用单引号创建，这还能区分使用双引号的对象字面量和JSON。
+
+    // bad
+    var foo = "bar";
+
+    // good
+    var foo ='bar';
+
+#### 9、函数
+
+
+
+#### 10、注释
+
+注释不应该放到语句的后面，应该放到语句上面：
+
+    // bad
+    var findfoo = doSth( isFoo ) // 注释不要写在这里
+
+    // god
+    // 注释放到这里
+    var findfoo = doSth( isFoo )
+
+注释应当谨慎使用，过多注释实际上说明代码表达的意义不清晰。
+
+注释应当始终表达一个完整的思想。
 
 ### 2、计算有效性规则
 
@@ -136,3 +240,30 @@
         findfoo();
         setTimeout( main, 100 );
     })();
+
+#### 8、其他补充
+
+* 抵制eval()的使用，它往往是一个恶意代码执行的注入点
+* 抵制with()的使用，它会使代码难以理解
+* 保持质朴的原型：切勿改装内置的原型如Array.prototype，因为它会无声无息的破坏别人期望得到的标准代码的行为
+* 使你的代码与浏览器无关：通过抽象业务逻辑代码与浏览器代码相互分离
+* 串联代码：现代应用中经常将多个JavaScript代码合并为一个压缩的精简文件，你应该确保编程脚本免受上下文或作用域转变带来的影响
+
+#### 9、实施代码风格
+
+* 美化器 [JS Beautify](https://github.com/beautify-web/js-beautify)
+* IDE - 项目级别的配置系统 [EditorConfig](http://editorconfig.org/)
+* JSHint [JSHint](http://jshint.com/)
+
+## 相关参考：
+
+* 《JavaScript专家编程》
+* 《JavaScript语言精粹》
+* 《JavaScript高级程序设计第三版》
+
+## 其他风格指南
+
+* [Principles of Writing Consistent, Idiomatic JavaScript](https://github.com/rwaldron/idiomatic.js)
+* Google JavaScript风格指南 [Google JavaScript Style Guide](https://google.github.io/styleguide/jsguide.html)
+* Airbnb JavaScript风格指南 [JavaScript Style Guide](https://github.com/airbnb/javascript)
+* jQuery 风格指南 [JavaScript Style Guide](http://contribute.jquery.org/style-guide/js/)
